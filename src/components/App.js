@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from './Header';
 import Login from './Login';
@@ -34,24 +34,18 @@ function App() {
             <Header user={user} onLogout={handleLogout} />
             <Switch>
                 <Route exact path="/login">
-                    <Login onLogin={handleLogin} />
+                    {user ? <Redirect to="/profile"></Redirect> : <Login onLogin={handleLogin} />}
                 </Route>
-            </Switch>
-            <Switch>
                 <Route exact path="/signup">
-                    <Signup onLogin={handleLogin} />
+                    {user ? <Redirect to="/profile"></Redirect> : <Signup onLogin={handleLogin} />}
+                </Route>
+                <Route exact path="/profile">
+                    {user ? <Profile user={user} /> : <Redirect to="/login"></Redirect>}
                 </Route>
             </Switch>
-            {user ?
-                <Switch>
-                    <Route exact path="/profile">
-                        <Profile user={user} />
-                    </Route>
-                </Switch>
-                : null}
             <Footer />
         </>
     );
 };
 
-export default App;
+            export default App;

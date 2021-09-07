@@ -15,14 +15,17 @@ function Header({ user, onLogout }) {
 
     return (
         <header>
-            {user ? (
+            {user ?
                 <div>
                     Welcome, {user.username}!
                     <button onClick={handleLogout}>Logout</button>
                 </div>
-            ) : (
-                <button><Link to="/login">Login</Link></button>
-            )}
+                :
+                <>
+                    <button><Link to="/login">Login</Link></button>
+                    <button><Link to="/signup">Signup</Link></button>
+                </>
+            }
         </header>
     );
 };

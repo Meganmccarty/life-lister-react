@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Header from './Header';
 import Login from './Login';
+import Signup from './Signup';
 import Profile from './Profile';
 import Footer from './Footer';
 
@@ -34,6 +35,11 @@ function App() {
             <Switch>
                 <Route exact path="/login">
                     <Login onLogin={handleLogin} />
+                </Route>
+            </Switch>
+            <Switch>
+                <Route exact path="/signup">
+                    <Signup onLogin={handleLogin}/>
                 </Route>
             </Switch>
             <Switch>

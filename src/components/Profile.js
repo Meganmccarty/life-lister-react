@@ -1,16 +1,19 @@
-import { useHistory } from 'react-router-dom';
-
 function Profile({ user }) {
-    const history = useHistory();
+
+    function displayUser() {
+        if (user) {
+            return (
+                <div>
+                    <h1>Profile</h1>
+                    <p>Username: {user.username}</p>
+                </div>
+            );
+        };
+    };
 
     return (
         <>
-            {user ?
-                <>
-                    <div>This is your profile page</div>
-                    <p>Username: {user.username}</p>
-                </>
-                : history.push("/login")}
+            {displayUser()}
         </>
     );
 };

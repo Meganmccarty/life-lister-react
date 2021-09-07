@@ -18,6 +18,8 @@ function App() {
             })
     }, []);
 
+    console.log(user)
+
     function handleLogin(user) {
         setUser(user);
     };

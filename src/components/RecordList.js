@@ -1,6 +1,6 @@
 import RecordCard from './RecordCard';
 
-function RecordList({ records, onDeleteRecord }) {
+function RecordList({ records, onPatchRecord, onDeleteRecord }) {
 
     const displayRecords = records.map(record => {
         return (
@@ -12,6 +12,7 @@ function RecordList({ records, onDeleteRecord }) {
                 notes={record.notes}
                 taxon={record.taxon}
                 onDeleteRecord={onDeleteRecord}
+                onPatchRecord={onPatchRecord}
             />
         );
     });

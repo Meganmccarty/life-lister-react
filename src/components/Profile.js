@@ -15,12 +15,19 @@ function Profile({ user }) {
             })
     }, []);
 
-    function handleAddRecord(record) {
-        setRecords([...records, record])
+    function handleAddRecord(newRecord) {
+        setRecords([...records, newRecord])
+    }
+
+    function handlePatchRecord(updatedRecord) {
+        const updatedRecordsArray = records.map(record => {
+            return record.id === updatedRecord.id ? updatedRecord : record;
+        })
+        setRecords(updatedRecordsArray)
     }
 
     function handleDeleteRecord(id) {
-        const updatedRecordsArray = records.filter((record) => record.id !== id);
+        const updatedRecordsArray = records.filter(record => record.id !== id);
         setRecords(updatedRecordsArray);
     }
 
@@ -30,7 +37,7 @@ function Profile({ user }) {
                 <div>
                     <h1>Profile</h1>
                     <p>Username: {user.username}</p>
-                    <RecordList records={records} onDeleteRecord={handleDeleteRecord}/>
+                    <RecordList records={records} onPatchRecord={handlePatchRecord} onDeleteRecord={handleDeleteRecord}/>
                     <RecordForm addRecord={handleAddRecord} />
                 </div>
             );

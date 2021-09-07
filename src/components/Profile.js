@@ -19,13 +19,18 @@ function Profile({ user }) {
         setRecords([...records, record])
     }
 
+    function handleDeleteRecord(id) {
+        const updatedRecordsArray = records.filter((record) => record.id !== id);
+        setRecords(updatedRecordsArray);
+    }
+
     function displayUser() {
         if (user) {
             return (
                 <div>
                     <h1>Profile</h1>
                     <p>Username: {user.username}</p>
-                    <RecordList records={records}/>
+                    <RecordList records={records} onDeleteRecord={handleDeleteRecord}/>
                     <RecordForm addRecord={handleAddRecord} />
                 </div>
             );

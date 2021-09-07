@@ -1,0 +1,23 @@
+.record-list {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.record-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    width: 18%;
+    margin: 10px;
+}
+
+.record-card img {
+    width: 100%;
+}
+
+.record-card div {
+    padding: 5px;
+}

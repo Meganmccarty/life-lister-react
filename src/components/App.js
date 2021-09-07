@@ -31,7 +31,7 @@ function App() {
 
     return (
         <>
-            <Header user={user} onLogout={handleLogout}/>
+            <Header user={user} onLogout={handleLogout} />
             <Switch>
                 <Route exact path="/login">
                     <Login onLogin={handleLogin} />
@@ -39,14 +39,16 @@ function App() {
             </Switch>
             <Switch>
                 <Route exact path="/signup">
-                    <Signup onLogin={handleLogin}/>
+                    <Signup onLogin={handleLogin} />
                 </Route>
             </Switch>
-            <Switch>
-                <Route exact path="/profile">
-                    <Profile user={user} />
-                </Route>
-            </Switch>
+            {user ?
+                <Switch>
+                    <Route exact path="/profile">
+                        <Profile user={user} />
+                    </Route>
+                </Switch>
+                : null}
             <Footer />
         </>
     );

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from './Header';
+import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import Profile from './Profile';
@@ -31,6 +32,9 @@ function App() {
         <>
             <Header user={user} onLogout={handleLogout} />
             <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
                 <Route exact path="/login">
                     {user ? <Redirect to="/profile"></Redirect> : <Login onLogin={handleLogin} />}
                 </Route>

@@ -19,13 +19,11 @@ function App() {
             })
     }, []);
 
-    console.log(user)
-
     function handleLogin(user) {
         setUser(user);
     };
 
-    function handleLogout(user) {
+    function handleLogout() {
         setUser(null);
     };
 
@@ -48,4 +46,4 @@ function App() {
     );
 };
 
-            export default App;
+export default App;

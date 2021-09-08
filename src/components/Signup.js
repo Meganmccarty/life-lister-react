@@ -41,33 +41,43 @@ function Signup({ onLogin }) {
                 };
             });
     };
-    
+
     return (
-        <form onSubmit={handleSubmit}>
-            {errors ? <div>{errors}</div>: null}
-            <label htmlFor="username">Username: </label>
-            <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <label htmlFor="password">Password: </label>
-            <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <label htmlFor="confirm-password">Confirm Password: </label>
-            <input
-                type="password"
-                id="confirm-password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <button type="submit">Signup</button>
-        </form>
+        <div className="auth-form">
+            <div className="auth-form-header">
+                <h1>Create an Account</h1>
+            </div>
+            <div className="auth-form-body">
+                <form onSubmit={handleSubmit}>
+                    {errors ? <div className="errors">{errors}</div> : null}
+                    <label htmlFor="username" class="visuallyhidden" />
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <label htmlFor="password" class="visuallyhidden" />
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <label htmlFor="confirm-password" class="visuallyhidden" />
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        placeholder="Confirm Password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                    <button type="submit">Signup</button>
+                </form>
+            </div>
+        </div>
     );
 };
 

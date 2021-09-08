@@ -31,20 +31,22 @@ function App() {
     return (
         <>
             <Header user={user} onLogout={handleLogout} />
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route exact path="/login">
-                    {user ? <Redirect to="/profile"></Redirect> : <Login onLogin={handleLogin} />}
-                </Route>
-                <Route exact path="/signup">
-                    {user ? <Redirect to="/profile"></Redirect> : <Signup onLogin={handleLogin} />}
-                </Route>
-                <Route exact path="/profile">
-                    {user ? <Profile user={user} /> : <Redirect to="/login"></Redirect>}
-                </Route>
-            </Switch>
+            <main role="main">
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route exact path="/login">
+                        {user ? <Redirect to="/profile"></Redirect> : <Login onLogin={handleLogin} />}
+                    </Route>
+                    <Route exact path="/signup">
+                        {user ? <Redirect to="/profile"></Redirect> : <Signup onLogin={handleLogin} />}
+                    </Route>
+                    <Route exact path="/profile">
+                        {user ? <Profile user={user} /> : <Redirect to="/login"></Redirect>}
+                    </Route>
+                </Switch>
+            </main>
             <Footer />
         </>
     );

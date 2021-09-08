@@ -2,6 +2,7 @@ body {
     margin: 0;
     background-color: #EBF2FA;
     font-family: "Trebuchet MS",Arial,sans-serif;
+    min-height: 100vh;
 }
 
 nav {
@@ -13,10 +14,10 @@ nav {
     color: white;
     padding: 20px;
     margin: 0;
-    font-size: 30px;
+    font-size: 25px;
 }
 
-nav a, nav a.logo {
+nav a, nav a.logo, nav button {
     font-size: 25px;
 }
 
@@ -29,7 +30,7 @@ nav a.logo:hover {
     color: white;
 }
 
-nav a {
+nav a, nav button {
     margin-left: 5px;
     margin-right: 5px;
     background-color: #679436;
@@ -42,9 +43,22 @@ nav a {
     color: white;
 }
 
-nav a:hover {
+nav button {
+    border: none;
+}
+
+nav a:hover, nav button:hover {
     background-color: #A5BE00;
     color: black;
+}
+
+footer {
+    position: absolute;
+    margin-bottom: 0;
+    background-color: #064789;
+    color: white;
+    padding: 10px;
+    width: 100%;
 }
 
 .record-list {

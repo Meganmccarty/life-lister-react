@@ -38,10 +38,8 @@ function Profile({ user }) {
         if (user) {
             return (
                 <div>
-                    <h1>Profile</h1>
-                    <p>Username: {user.username}</p>
-                    <RecordList records={records} onPatchRecord={handlePatchRecord} onDeleteRecord={handleDeleteRecord}/>
                     <RecordForm addRecord={handleAddRecord} />
+                    <RecordList records={records} onPatchRecord={handlePatchRecord} onDeleteRecord={handleDeleteRecord}/>
                 </div>
             );
         };

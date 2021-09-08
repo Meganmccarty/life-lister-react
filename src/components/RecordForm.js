@@ -61,12 +61,6 @@ function RecordForm({ addRecord }) {
                 <option>Reptile</option>
                 <option>Other</option>
             </select>
-            {/* <input
-                type="string"
-                id="category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-            /> */}
             <label htmlFor="date-seen">Date Seen: </label>
             <input
                 type="date"
@@ -75,8 +69,7 @@ function RecordForm({ addRecord }) {
                 onChange={(e) => setDateSeen(e.target.value)}
             />
             <label htmlFor="notes">Notes: </label>
-            <input
-                type="text"
+            <textarea
                 id="notes"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}

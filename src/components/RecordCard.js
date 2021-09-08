@@ -65,7 +65,7 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
                             <option>Other</option>
                         </select>
                         <input type="date" value={editDateSeen} onChange={(e) => setEditDateSeen(e.target.value)} />
-                        <input type="text" value={editNotes} onChange={(e) => setEditNotes(e.target.value)} />
+                        <textarea value={editNotes} onChange={(e) => setEditNotes(e.target.value)} />
                     </>
                     :
                     <>

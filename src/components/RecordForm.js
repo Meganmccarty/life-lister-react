@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function RecordForm({ addRecord }) {
     const [taxon, setTaxon] = useState("");
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("-Choose Category-");
     const [dateSeen, setDateSeen] = useState("");
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState("");
@@ -29,6 +29,10 @@ function RecordForm({ addRecord }) {
                 if (response.ok) {
                     response.json().then(data => {
                         addRecord(data)
+                        setTaxon("")
+                        setCategory("-Choose Category-")
+                        setDateSeen("")
+                        setNotes("")
                     })
                 } else {
                     response.json().then(error => {
@@ -42,16 +46,17 @@ function RecordForm({ addRecord }) {
     return (
         <form onSubmit={handleSubmit}>
             {errors ? <div>{errors}</div>: null}
-            <label htmlFor="username">Taxon: </label>
+            <label htmlFor="taxon" className="visuallyhidden" />
             <input
                 type="text"
                 id="taxon"
+                placeholder="Taxon"
                 value={taxon}
                 onChange={(e) => setTaxon(e.target.value)}
             />
-            <label htmlFor="category">Category: </label>
+            <label htmlFor="category" className="visuallyhidden" />
             <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
-                <option>--</option>
+                <option>-Choose Category-</option>
                 <option>Amphibian</option>
                 <option>Bird</option>
                 <option>Butterfly</option>
@@ -69,9 +74,10 @@ function RecordForm({ addRecord }) {
                 value={dateSeen}
                 onChange={(e) => setDateSeen(e.target.value)}
             />
-            <label htmlFor="notes">Notes: </label>
+            <label htmlFor="notes" className="visuallyhidden" />
             <textarea
                 id="notes"
+                placeholder="Notes"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
             />

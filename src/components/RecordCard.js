@@ -55,6 +55,7 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
                     <>
                         <select value={editCategory} onChange={(e) => setEditCategory(e.target.value)}>
                             <option>--</option>
+                            <option>Amphibian</option>
                             <option>Bird</option>
                             <option>Butterfly</option>
                             <option>Fish</option>

@@ -52,6 +52,7 @@ function RecordForm({ addRecord }) {
             <label htmlFor="category">Category: </label>
             <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option>--</option>
+                <option>Amphibian</option>
                 <option>Bird</option>
                 <option>Butterfly</option>
                 <option>Fish</option>

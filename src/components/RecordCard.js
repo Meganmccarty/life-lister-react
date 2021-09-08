@@ -22,13 +22,13 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
                 })
             }
             fetch(`/records/${id}`, configObj)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                onPatchRecord(data)
-                setEditMode(false);
-            })
-            .catch(error => console.log(error))
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    onPatchRecord(data)
+                    setEditMode(false);
+                })
+                .catch(error => console.log(error))
         } else {
             setEditMode(true)
         }
@@ -53,9 +53,19 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
                 <h3>{taxon.common_name} (<i>{taxon.species}</i>)</h3>
                 {editMode ?
                     <>
-                    <input type="text" value={editCategory} onChange={(e) => setEditCategory(e.target.value)}/>
-                    <input type="date" value={editDateSeen} onChange={(e) => setEditDateSeen(e.target.value)}/>
-                    <input type="text" value={editNotes} onChange={(e) => setEditNotes(e.target.value)}/>
+                        <select value={editCategory} onChange={(e) => setEditCategory(e.target.value)}>
+                            <option>--</option>
+                            <option>Bird</option>
+                            <option>Butterfly</option>
+                            <option>Fish</option>
+                            <option>Insect</option>
+                            <option>Mammal</option>
+                            <option>Plant</option>
+                            <option>Reptile</option>
+                            <option>Other</option>
+                        </select>
+                        <input type="date" value={editDateSeen} onChange={(e) => setEditDateSeen(e.target.value)} />
+                        <input type="text" value={editNotes} onChange={(e) => setEditNotes(e.target.value)} />
                     </>
                     :
                     <>

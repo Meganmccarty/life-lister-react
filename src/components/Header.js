@@ -14,19 +14,22 @@ function Header({ user, onLogout }) {
     };
 
     return (
-        <header>
-            {user ?
-                <div>
-                    Welcome, {user.username}!
-                    <button onClick={handleLogout}>Logout</button>
-                </div>
-                :
-                <>
-                    <button><Link to="/login">Login</Link></button>
-                    <button><Link to="/signup">Signup</Link></button>
-                </>
-            }
-        </header>
+        <nav role="navigation">
+            <div><Link className="logo" to="/">Life-Lister App</Link></div>
+            <div>
+                {user ?
+                    <>
+                        Welcome, {user.username}!
+                        <button onClick={handleLogout}>Logout</button>
+                    </>
+                    :
+                    <>
+                        <Link to="/login">Login</Link>
+                        <Link to="/signup">Signup</Link>
+                    </>
+                }
+            </div>
+        </nav>
     );
 };
 

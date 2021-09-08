@@ -6,9 +6,11 @@ function Login({ onLogin }) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
+        setErrors("");
         const configObj = {
             method: "POST",
             headers: {
@@ -26,7 +28,12 @@ function Login({ onLogin }) {
                         onLogin(user);
                         setUsername("");
                         setPassword("");
-                        history.push("/profile")
+                        history.push("/profile");
+                    });
+                } else {
+                    response.json().then(error => {
+                        console.log(error.errors);
+                        setErrors(error.errors);
                     });
                 };
             });
@@ -35,6 +42,7 @@ function Login({ onLogin }) {
 
     return (
         <form onSubmit={handleSubmit}>
+            {errors ? <div>{errors}</div>: null}
             <label htmlFor="username">Username: </label>
             <input
                 type="text"

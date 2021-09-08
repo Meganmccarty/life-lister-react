@@ -5,6 +5,7 @@ function Signup({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [errors, setErrors] = useState("");
 
     const history = useHistory();
 
@@ -31,12 +32,18 @@ function Signup({ onLogin }) {
                         setConfirmPassword("");
                         history.push("/profile");
                     });
+                } else {
+                    response.json().then(error => {
+                        console.log(error.errors)
+                        setErrors(error.errors)
+                    })
                 };
             });
     };
     
     return (
         <form onSubmit={handleSubmit}>
+            {errors ? <div>{errors}</div>: null}
             <label htmlFor="username">Username: </label>
             <input
                 type="text"

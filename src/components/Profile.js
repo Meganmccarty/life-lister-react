@@ -8,11 +8,14 @@ function Profile({ user }) {
 
     useEffect(() => {
         fetch("/records")
-            .then(response => response.json())
-            .then(data => {
-                const recordsForUser = data.filter(record => record.user.id === user.id)
-                setRecords(recordsForUser)
-            })
+            .then(response => {
+                if (response.ok) {
+                    response.json().then(data => {
+                        const recordsForUser = data.filter(record => record.user.id === user.id)
+                        setRecords(recordsForUser)
+                    });
+                };
+            });
     }, []);
 
     function handleAddRecord(newRecord) {

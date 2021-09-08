@@ -5,6 +5,7 @@ function RecordForm({ addRecord }) {
     const [category, setCategory] = useState("");
     const [dateSeen, setDateSeen] = useState("");
     const [notes, setNotes] = useState("");
+    const [errors, setErrors] = useState("");
 
     console.log(category);
 
@@ -23,16 +24,23 @@ function RecordForm({ addRecord }) {
             }),
         }
         fetch("/records", configObj)
-            .then(response => response.json())
-            .then(data => {
-                addRecord(data)
-            })
-            .catch(error => console.log(error));
+            .then(response => {
+                if (response.ok) {
+                    response.json().then(data => {
+                        addRecord(data)
+                    })
+                } else {
+                    response.json().then(error => {
+                        console.log(error.errors)
+                        setErrors(error.errors)
+                    })
+                }
+            }).catch(error => console.log(error))
     }
-
 
     return (
         <form onSubmit={handleSubmit}>
+            {errors ? <div>{errors}</div>: null}
             <label htmlFor="username">Taxon: </label>
             <input
                 type="text"

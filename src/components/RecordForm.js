@@ -55,6 +55,7 @@ function RecordForm({ addRecord }) {
                 <option>Butterfly</option>
                 <option>Fish</option>
                 <option>Insect</option>
+                <option>Mammal</option>
                 <option>Plant</option>
                 <option>Reptile</option>
                 <option>Other</option>

@@ -52,7 +52,7 @@ function Signup({ onLogin }) {
             <div className="auth-form-body">
                 <form onSubmit={handleSubmit}>
                     {errors ? <div className="errors">{errors}</div> : null}
-                    <label htmlFor="username" class="visuallyhidden" />
+                    <label htmlFor="username" className="visuallyhidden" />
                     <input
                         type="text"
                         id="username"
@@ -60,7 +60,7 @@ function Signup({ onLogin }) {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
-                    <label htmlFor="password" class="visuallyhidden" />
+                    <label htmlFor="password" className="visuallyhidden" />
                     <input
                         type="password"
                         id="password"
@@ -68,7 +68,7 @@ function Signup({ onLogin }) {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <label htmlFor="confirm-password" class="visuallyhidden" />
+                    <label htmlFor="confirm-password" className="visuallyhidden" />
                     <input
                         type="password"
                         id="confirm-password"

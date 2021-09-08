@@ -19,7 +19,7 @@ function Header({ user, onLogout }) {
             <div>
                 {user ?
                     <>
-                        Welcome, {user.username}!
+                        <Link to="/profile">Profile</Link>
                         <button onClick={handleLogout}>Logout</button>
                     </>
                     :

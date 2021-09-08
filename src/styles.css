@@ -16,6 +16,9 @@
 
 .record-card img {
     width: 100%;
+    height: 140px;
+    object-fit: cover;
+    object-position: 50% 40%;
 }
 
 .record-card div {

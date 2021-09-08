@@ -9,6 +9,8 @@ function Signup({ onLogin }) {
 
     const history = useHistory();
 
+    console.log(errors)
+
     function handleSubmit(e) {
         e.preventDefault();
         setErrors("");
@@ -36,7 +38,7 @@ function Signup({ onLogin }) {
                 } else {
                     response.json().then(error => {
                         console.log(error.errors)
-                        setErrors(error.errors)
+                        setErrors(error.errors.join("; "))
                     })
                 };
             });

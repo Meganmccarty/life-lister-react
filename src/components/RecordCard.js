@@ -46,11 +46,51 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
             })
     }
 
+    function handleCategoryColor() {
+        let color;
+        switch (category) {
+            case "Amphibian":
+                color = "pink-category";
+                break;
+            case "Bird":
+                color = "blue-category"
+                break;
+            case "Butterfly":
+                color = "purple-category";
+                break;
+            case "Fish":
+                color = "yellow-category";
+                break;
+            case "Insect":
+                color = "orange-category";
+                break;
+            case "Mammal":
+                color = "gray-category";
+                break;
+            case "Plant":
+                color = "green-category";
+                break;
+            case "Reptile":
+                color = "indigo-category";
+                break;
+            case "Other":
+                color = "red-category";
+                break;
+        }
+        return color;
+    }
+
     return (
         <div className="record-card">
-            <img src={taxon.image} alt={taxon.common_name} />
-            <div>
-                <h3>{taxon.common_name} (<i>{taxon.species}</i>)</h3>
+            {editMode ?
+                <img src={taxon.image} alt={taxon.common_name} style={{ borderRadius: "0px" }} />
+                :
+                <img src={taxon.image} alt={taxon.common_name} style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} />}
+            <section>
+                <div className={`${handleCategoryColor()} record-card-taxon`}>
+                    <span>{taxon.common_name}</span>
+                    <span>(<i>{taxon.species}</i>)</span>
+                </div>
                 {editMode ?
                     <>
                         <select value={editCategory} onChange={(e) => setEditCategory(e.target.value)}>
@@ -69,15 +109,16 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
                         <textarea value={editNotes} onChange={(e) => setEditNotes(e.target.value)} />
                     </>
                     :
-                    <>
-                        <h4>Category: {category}</h4>
-                        <h4>Date first seen: {dateSeen}</h4>
-                        <h4>Notes: {notes}</h4>
-                    </>
+                    <div className="record-card-info">
+                        <span>First seen: {dateSeen}</span>
+                        {notes ? <span>{notes}</span> : <br />}
+                    </div>
                 }
-                <button onClick={handleEditMode}>{editMode ? "Save record" : "Edit record"}</button>
-                <button onClick={handleDelete}>Delete record</button>
-            </div>
+                <div className="button-container">
+                    <button className="save-edit-button" onClick={handleEditMode}>{editMode ? "Save" : "Edit"}</button>
+                    <button className="delete-button" onClick={handleDelete}>Delete</button>
+                </div>
+            </section>
         </div>
     );
 };

@@ -11,6 +11,7 @@ function RecordForm({ addRecord }) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setErrors("");
         const configObj = {
             method: "POST",
             headers: {

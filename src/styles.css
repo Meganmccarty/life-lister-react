@@ -192,7 +192,7 @@ footer {
     flex-direction: row;
 }
 
-.taxon-form form input, .taxon-form form select, .taxon-form form textarea {
+.taxon-form form input, .taxon-form form select, .taxon-form form textarea, .filter select {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 2.5px;
@@ -206,6 +206,18 @@ footer {
     margin: 20px;
     background-color: #A5BE00;
     color: black;
+}
+
+.filter {
+    background-color: #427AA1;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.filter label {
+    margin-left: 2.5px;
+    margin-right: 2.5px;
 }
 
 .record-list {

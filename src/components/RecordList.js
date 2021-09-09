@@ -36,7 +36,7 @@ function RecordList({ records, onPatchRecord, onDeleteRecord }) {
 
     return (
         <>
-            <div>
+            <div className="filter">
                 <label htmlFor="filter-category">Filter by Category: </label>
                 <select id="filter-category" value={filter} onChange={(e) => setFilter(e.target.value)}>
                     <option>--</option>

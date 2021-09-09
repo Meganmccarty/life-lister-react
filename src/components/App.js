@@ -6,6 +6,7 @@ import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
 import Profile from './Profile';
+import ShareLifeList from './ShareLifeList';
 import Footer from './Footer';
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
         setUser(null);
     };
 
+    function handlePatchUser(updatedUser) {
+        setUser(updatedUser);
+    };
+
     return (
         <>
             <Header user={user} onLogout={handleLogout} />
@@ -43,7 +48,10 @@ function App() {
                         {user ? <Redirect to="/profile"></Redirect> : <Signup onLogin={handleLogin} />}
                     </Route>
                     <Route exact path="/profile">
-                        {user ? <Profile user={user} /> : <Redirect to="/login"></Redirect>}
+                        {user ? <Profile user={user} onPatchUser={handlePatchUser} /> : <Redirect to="/login"></Redirect>}
+                    </Route>
+                    <Route exact path="/lifelist/:username">
+                        <ShareLifeList/>
                     </Route>
                 </Switch>
             </main>

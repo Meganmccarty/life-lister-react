@@ -44,45 +44,54 @@ function RecordForm({ addRecord }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            {errors ? <div>{errors}</div>: null}
-            <label htmlFor="taxon" className="visuallyhidden" />
-            <input
-                type="text"
-                id="taxon"
-                placeholder="Taxon"
-                value={taxon}
-                onChange={(e) => setTaxon(e.target.value)}
-            />
-            <label htmlFor="category" className="visuallyhidden" />
-            <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
-                <option>-Choose Category-</option>
-                <option>Amphibian</option>
-                <option>Bird</option>
-                <option>Butterfly</option>
-                <option>Fish</option>
-                <option>Insect</option>
-                <option>Mammal</option>
-                <option>Plant</option>
-                <option>Reptile</option>
-                <option>Other</option>
-            </select>
-            <label htmlFor="date-seen">Date Seen: </label>
-            <input
-                type="date"
-                id="date-seen"
-                value={dateSeen}
-                onChange={(e) => setDateSeen(e.target.value)}
-            />
-            <label htmlFor="notes" className="visuallyhidden" />
-            <textarea
-                id="notes"
-                placeholder="Notes"
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-            />
-            <button type="submit">Create Record</button>
-        </form>
+        <div className="taxon-form">
+            <div className="taxon-form-header">
+                <h2>Add a Taxon</h2>
+            </div>
+            <div className="taxon-form-body">
+                <form onSubmit={handleSubmit}>
+                    {errors ? <div>{errors}</div> : null}
+                    <div className="taxon-category-date">
+                        <label htmlFor="taxon" className="visuallyhidden" />
+                        <input
+                            type="text"
+                            id="taxon"
+                            placeholder="Taxon"
+                            value={taxon}
+                            onChange={(e) => setTaxon(e.target.value)}
+                        />
+                        <label htmlFor="category" className="visuallyhidden" />
+                        <select id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
+                            <option>-Choose Category-</option>
+                            <option>Amphibian</option>
+                            <option>Bird</option>
+                            <option>Butterfly</option>
+                            <option>Fish</option>
+                            <option>Insect</option>
+                            <option>Mammal</option>
+                            <option>Plant</option>
+                            <option>Reptile</option>
+                            <option>Other</option>
+                        </select>
+                        <label htmlFor="date-seen" className="visuallyhidden" />
+                        <input
+                            type="date"
+                            id="date-seen"
+                            value={dateSeen}
+                            onChange={(e) => setDateSeen(e.target.value)}
+                        />
+                    </div>
+                    <label htmlFor="notes" className="visuallyhidden" />
+                    <textarea
+                        id="notes"
+                        placeholder="Notes"
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                    />
+                    <button type="submit">Create Record</button>
+                </form>
+            </div>
+        </div>
     );
 };
 

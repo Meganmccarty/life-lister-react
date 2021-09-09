@@ -37,7 +37,7 @@ function Profile({ user }) {
     function displayUser() {
         if (user) {
             return (
-                <div>
+                <div className="profile">
                     <RecordForm addRecord={handleAddRecord} />
                     <RecordList records={records} onPatchRecord={handlePatchRecord} onDeleteRecord={handleDeleteRecord}/>
                 </div>

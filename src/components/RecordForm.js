@@ -50,7 +50,7 @@ function RecordForm({ addRecord }) {
             </div>
             <div className="taxon-form-body">
                 <form onSubmit={handleSubmit}>
-                    {errors ? <div>{errors}</div> : null}
+                    {errors ? <div className="errors">{errors}</div> : null}
                     <div className="taxon-category-date">
                         <label htmlFor="taxon" className="visuallyhidden" />
                         <input

@@ -72,6 +72,7 @@ function RecordList({ user, onPatchUser, records, onPatchRecord, onDeleteRecord 
                     <label htmlFor="filter-category">Filter by Category: </label>
                     <select id="filter-category" value={filter} onChange={(e) => setFilter(e.target.value)}>
                         <option>--</option>
+                        <option>Amphibian</option>
                         <option>Bird</option>
                         <option>Butterfly</option>
                         <option>Fish</option>

@@ -188,8 +188,12 @@ footer {
     margin-top: 10px;
 }
 
-.taxon-form form .taxon-category-date {
+.taxon-category-date {
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 textarea, input[type="date"], select {
@@ -219,6 +223,9 @@ textarea, input[type="date"], select {
 }
 
 .filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     background-color: #427AA1;
     color: white;
     padding: 10px;
@@ -361,9 +368,24 @@ button.delete-button:hover {
     color: black;
 }
 
+@media all and (max-width: 990px) {
+    .taxon-form {
+        height: 55vh;
+    }
+}
+
 @media all and (max-width: 750px) {
     .auth-form {
         width: 75%;
+    }
+
+    .taxon-form {
+        width: 75%;
+        height: 65vh;
+    }
+
+    .taxon-category-date {
+        flex-direction: column;
     }
 }
 
@@ -377,5 +399,15 @@ button.delete-button:hover {
 
     nav > div {
         margin: 5px;
+    }
+
+    .taxon-form {
+        width: 80%;
+        height: 70vh;
+    }
+
+    .filter {
+        width: 80%;
+        flex-direction: column;
     }
 }

@@ -14,10 +14,9 @@ nav {
     color: white;
     padding: 20px;
     margin: 0;
-    font-size: 25px;
 }
 
-nav a, nav a.logo, nav button {
+nav a, nav a.logo, nav button, nav span {
     font-size: 20px;
 }
 
@@ -28,6 +27,10 @@ nav a.logo {
 nav a.logo:hover {
     background-color: #064789;
     color: white;
+}
+
+nav span {
+    margin-right: 10px;
 }
 
 nav a, button {
@@ -222,6 +225,13 @@ textarea, input[type="date"], select {
     color: black;
 }
 
+.filter-and-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 .filter {
     display: flex;
     flex-direction: row;
@@ -235,6 +245,14 @@ textarea, input[type="date"], select {
 .filter label {
     margin-left: 2.5px;
     margin-right: 2.5px;
+}
+
+.share-profile {
+    background-color: #064789;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
 }
 
 .record-list {
@@ -368,9 +386,22 @@ button.delete-button:hover {
     color: black;
 }
 
+.shared-lifelist {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 @media all and (max-width: 990px) {
     .taxon-form {
         height: 55vh;
+    }
+
+    .filter-and-profile {
+        flex-direction: column;
+        align-items: center;
     }
 }
 

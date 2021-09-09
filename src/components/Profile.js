@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import RecordForm from './RecordForm';
 import RecordList from './RecordList';
 
-function Profile({ user }) {
+function Profile({ user, onPatchUser }) {
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
@@ -39,7 +39,7 @@ function Profile({ user }) {
             return (
                 <div className="profile">
                     <RecordForm addRecord={handleAddRecord} />
-                    <RecordList records={records} onPatchRecord={handlePatchRecord} onDeleteRecord={handleDeleteRecord}/>
+                    <RecordList user={user} onPatchUser={onPatchUser} records={records} onPatchRecord={handlePatchRecord} onDeleteRecord={handleDeleteRecord}/>
                 </div>
             );
         };

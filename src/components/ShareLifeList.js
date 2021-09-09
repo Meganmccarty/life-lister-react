@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import loadingGIF from '../loading.gif'
 
 function ShareLifeList() {
     const [publicUser, setPublicUser] = useState(null);
@@ -57,7 +58,7 @@ function ShareLifeList() {
 
     return (
         <>
-            {loading ? <div>Gif Loading</div> : 
+            {loading ? <img id="loading" src={loadingGIF} alt="loading"/> : 
             publicUser ?
                 <>
                     <h1>{publicUser.username}'s Lifelist</h1>

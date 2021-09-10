@@ -228,12 +228,14 @@ textarea, input[type="date"], select {
     border: none;
     border-radius: 10px;
     padding: 10px;
+    font-size: 15px;
 }
 
 .taxon-form button {
     margin: 20px;
     background-color: #A5BE00;
     color: black;
+    font-size: 15px;
 }
 
 .filter-and-profile {

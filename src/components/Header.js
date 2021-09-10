@@ -15,7 +15,7 @@ function Header({ user, onLogout }) {
 
     return (
         <nav role="navigation">
-            <div><Link className="logo" to="/">Life-Lister App</Link></div>
+            <div><Link className="logo" to="/">Life-Lister</Link></div>
             <div>
                 {user ?
                     <>

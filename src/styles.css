@@ -38,6 +38,10 @@ main {
     padding: 10px;
 }
 
+#home-signup:hover {
+    background-color:#679436;
+}
+
 #home-signup a {
     color: white;
 }

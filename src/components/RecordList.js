@@ -94,8 +94,7 @@ function RecordList({ user, onPatchUser, records, onPatchRecord, onDeleteRecord 
                         <button onClick={handleProfile}>Make my profile public!</button>
                         :
                         <>
-                            <button value={`http://localhost:3001/lifelist/${user.username}`} onClick={handleCopyLifeListURL}>Share my life list!</button>
-                            {copied ? <div>{copied}</div> : null}
+                            <button value={`http://localhost:3001/lifelist/${user.username}`} onClick={handleCopyLifeListURL}>{copied ? <span id="copied-text">{copied}</span> : <>Share my life list!</>}</button>
                             <button onClick={handleProfile}>Make my profile private</button>
                         </>
                     }

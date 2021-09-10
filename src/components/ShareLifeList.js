@@ -61,7 +61,7 @@ function ShareLifeList() {
             {loading ? <img id="loading" src={loadingGIF} alt="loading"/> : 
             publicUser ?
                 <>
-                    <h1>{publicUser.username}'s Lifelist</h1>
+                    <h1>{publicUser.username}'s Life List</h1>
                     <div className="filter">
                         <label htmlFor="filter-category">Filter by Category: </label>
                         <select id="filter-category" value={filter} onChange={(e) => setFilter(e.target.value)}>
@@ -113,9 +113,9 @@ function ShareLifeList() {
                 </>
                 :
                 <>
-                    <h1>Oops, you've tried seeing a Lifelist that is marked as private!</h1>
-                    <h2>If you tried accessing your lifelist, you'll need to <Link to="/login">log in</Link> and visit your profile.</h2>
-                    <h2>If you want to share your lifelist, please ensure you have marked it as public after logging in.</h2>
+                    <h1>Oops, you've tried seeing a Life List that is marked as private!</h1>
+                    <h2>If you tried accessing your life list, you'll need to <Link to="/login">log in</Link> and visit your profile.</h2>
+                    <h2>If you want to share your life list, please ensure you have marked it as public after logging in.</h2>
                 </>
             
             }

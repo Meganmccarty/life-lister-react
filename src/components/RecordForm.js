@@ -37,7 +37,7 @@ function RecordForm({ addRecord }) {
                 } else {
                     response.json().then(error => {
                         console.log(error.errors)
-                        setErrors(error.errors)
+                        setErrors(error.errors.join("; "))
                     })
                 }
             }).catch(error => console.log(error))
@@ -54,6 +54,7 @@ function RecordForm({ addRecord }) {
                     <div className="taxon-category-date">
                         <label htmlFor="taxon" className="visuallyhidden" />
                         <input
+                            required
                             type="text"
                             id="taxon"
                             placeholder="Taxon"

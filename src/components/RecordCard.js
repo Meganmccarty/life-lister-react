@@ -82,10 +82,7 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
 
     return (
         <div className="record-card">
-            {editMode ?
-                <img src={taxon.image} alt={taxon.common_name} style={{ borderRadius: "0px" }} />
-                :
-                <img src={taxon.image} alt={taxon.common_name} style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} />}
+            <img src={taxon.image} alt={taxon.common_name} />
             <section>
                 <div className={`${handleCategoryColor()} record-card-taxon`}>
                     <span>{taxon.common_name}</span>

@@ -19,7 +19,7 @@ function ShareLifeList() {
                 setLoading(false);
             })
             .catch(error => console.log(error))
-    }, [])
+    }, [username])
 
     function handleCategoryColor(category) {
         let color;
@@ -50,6 +50,9 @@ function ShareLifeList() {
                 break;
             case "Other":
                 color = "red-category";
+                break;
+            default:
+                color = "";
                 break;
         }
         return color;
@@ -94,7 +97,7 @@ function ShareLifeList() {
                                     return publicUser.records;
                                 }
                             }).map(record => {
-                                return (<div className="record-card">
+                                return (<div className="record-card" key={record.id}>
                                     <img src={record.taxon.image} alt={record.taxon.common_name} style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }} />
                                     <section>
                                         <div className={`${handleCategoryColor(record.category)} record-card-taxon`}>

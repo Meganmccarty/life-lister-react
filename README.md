@@ -2,6 +2,8 @@
 
 This is the React frontend for the Life-Lister app. This app enables naturalists to keep track of the organisms they have seen and share their life lists with others. The backend is built with Ruby on Rails. For the backend, see the repo here: https://github.com/Meganmccarty/life-lister-rails
 
+You can visit the live website here: https://life-lister.herokuapp.com
+
 You can also watch a [short walkthrough video](https://drive.google.com/file/d/1RuurazEz0-hyKefSAGRFzVUufP_LjMcS/view?usp=sharing) of the project.
 
 ## Get your own copy
@@ -14,7 +16,7 @@ To create your own copy of this project:
 6. Run `npm install`
 7. Run `npm start`
 
-The website should open up in a new browser tab at `http://localhost:3001`
+The website should open up in a new browser tab at `http://localhost:3000`
 
 ### Configure the backend (optional)
 If you want to use a blank, local database, please see the README for the backend repo: https://github.com/Meganmccarty/life-lister-rails

@@ -95,7 +95,7 @@ function RecordList({ user, onPatchUser, records, onPatchRecord, onDeleteRecord 
                         <button onClick={handleProfile}>Make my profile public!</button>
                         :
                         <>
-                            <button value={`https://life-lister.herokuapp.com/lifelist/${user.username}`} onClick={handleCopyLifeListURL}>{copied ? <span id="copied-text">{copied}</span> : <>Share my life list!</>}</button>
+                            <button value={`http://localhost:3000/lifelist/${user.username}`} onClick={handleCopyLifeListURL}>{copied ? <span id="copied-text">{copied}</span> : <>Share my life list!</>}</button>
                             <button onClick={handleProfile}>Make my profile private</button>
                         </>
                     }

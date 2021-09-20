@@ -18,8 +18,10 @@ function Home() {
             <h1>Life-Lister: Track the Organisms You've Seen</h1>
             <img className="home-image" src={exampleLifeList} alt="Example Life List" />
             <h1>Add a Species Using a Simple Form</h1>
-            <img className="home-image" src={taxonForm} alt="Taxon Form" />
-            <caption>Add a taxon using either a common or scientific name!</caption>
+            <figure>
+                <img className="home-image" src={taxonForm} alt="Taxon Form" />
+                <figcaption>Add a taxon using either a common or scientific name!</figcaption>
+            </figure>
             <h1>Filter Your Life List by Organism Type and Date Seen</h1>
             <img className="home-image" src={filter} alt="Life List Filter" />
             <img className="home-image" src={filteredList} alt="Filtered List" />

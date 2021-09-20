@@ -16,7 +16,7 @@ function Profile({ user, onPatchUser }) {
                     });
                 };
             });
-    }, []);
+    }, [user.id]);
 
     function handleAddRecord(newRecord) {
         setRecords([...records, newRecord])

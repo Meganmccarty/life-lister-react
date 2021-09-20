@@ -1,4 +1,5 @@
 import { Link, useHistory } from "react-router-dom";
+import CSRFToken from "./cookies";
 
 function Header({ user, onLogout }) {
     const history = useHistory();
@@ -6,6 +7,9 @@ function Header({ user, onLogout }) {
     function handleLogout() {
         fetch("/logout", {
             method: "DELETE",
+            headers: {
+                "X-CSRF-Token": CSRFToken(document.cookie)
+            },
         })
             .then(() => {
                 onLogout()

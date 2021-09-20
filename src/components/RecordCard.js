@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CSRFToken from './cookies';
 
 function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDeleteRecord }) {
     const [editMode, setEditMode] = useState(false);
@@ -13,7 +14,8 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
                 method: "PATCH",
                 headers: {
                     "Accept": "application/json",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "X-CSRF-Token": CSRFToken(document.cookie)
                 },
                 body: JSON.stringify({
                     category: editCategory,
@@ -21,7 +23,7 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
                     notes: editNotes
                 })
             }
-            fetch(`/records/${id}`, configObj)
+            fetch(`/api/records/${id}`, configObj)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
@@ -36,9 +38,12 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
 
     function handleDelete() {
         const configObj = {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                "X-CSRF-Token": CSRFToken(document.cookie)
+            }
         }
-        fetch(`/records/${id}`, configObj)
+        fetch(`/api/records/${id}`, configObj)
             .then(response => {
                 if (response.ok) {
                     onDeleteRecord(id)

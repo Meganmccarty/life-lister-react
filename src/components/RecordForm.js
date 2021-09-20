@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CSRFToken from './cookies';
 
 function RecordForm({ addRecord }) {
     const [taxon, setTaxon] = useState("");
@@ -16,6 +17,7 @@ function RecordForm({ addRecord }) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "X-CSRF-Token": CSRFToken(document.cookie)
             },
             body: JSON.stringify({
                 "taxon": taxon,
@@ -24,7 +26,7 @@ function RecordForm({ addRecord }) {
                 "notes": notes,
             }),
         }
-        fetch("/records", configObj)
+        fetch("/api/records", configObj)
             .then(response => {
                 if (response.ok) {
                     response.json().then(data => {

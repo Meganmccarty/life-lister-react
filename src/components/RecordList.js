@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import RecordCard from './RecordCard';
+import CSRFToken from './cookies';
 
 function RecordList({ user, onPatchUser, records, onPatchRecord, onDeleteRecord }) {
     const [filter, setFilter] = useState("--");
@@ -40,13 +41,14 @@ function RecordList({ user, onPatchUser, records, onPatchRecord, onDeleteRecord 
             method: "PATCH",
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "X-CSRF-Token": CSRFToken(document.cookie)
             },
             body: JSON.stringify({
                 public_profile: !user.public_profile
             })
         }
-        fetch(`/users/${user.id}`, configObj)
+        fetch(`/api/users/${user.id}`, configObj)
             .then(response => response.json())
             .then(data => {
                 console.log("Updated User: ", data)
@@ -94,7 +96,7 @@ function RecordList({ user, onPatchUser, records, onPatchRecord, onDeleteRecord 
                         <button onClick={handleProfile}>Make my profile public!</button>
                         :
                         <>
-                            <button value={`http://localhost:3001/lifelist/${user.username}`} onClick={handleCopyLifeListURL}>{copied ? <span id="copied-text">{copied}</span> : <>Share my life list!</>}</button>
+                            <button value={`https://life-lister.herokuapp.com/lifelist/${user.username}`} onClick={handleCopyLifeListURL}>{copied ? <span id="copied-text">{copied}</span> : <>Share my life list!</>}</button>
                             <button onClick={handleProfile}>Make my profile private</button>
                         </>
                     }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import CSRFToken from './cookies';
 
 function Login({ onLogin }) {
     const history = useHistory();
@@ -15,6 +16,7 @@ function Login({ onLogin }) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "X-CSRF-Token": CSRFToken(document.cookie)
             },
             body: JSON.stringify({
                 "username": username,

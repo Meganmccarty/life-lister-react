@@ -7,7 +7,7 @@ function Profile({ user, onPatchUser }) {
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
-        fetch("/records")
+        fetch("/api/records")
             .then(response => {
                 if (response.ok) {
                     response.json().then(data => {

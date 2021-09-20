@@ -15,7 +15,7 @@ function App() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("/profile")
+        fetch("/api/profile")
             .then(response => {
                 if (response.ok) {
                     response.json().then(user => {

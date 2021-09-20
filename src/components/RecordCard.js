@@ -80,6 +80,9 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
             case "Other":
                 color = "red-category";
                 break;
+            default:
+                color = "";
+                break;
         }
         return color;
     }

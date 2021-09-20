@@ -51,7 +51,6 @@ function RecordList({ user, onPatchUser, records, onPatchRecord, onDeleteRecord 
         fetch(`/api/users/${user.id}`, configObj)
             .then(response => response.json())
             .then(data => {
-                console.log("Updated User: ", data)
                 onPatchUser(data)
             })
             .catch(error => console.log(error))

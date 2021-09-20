@@ -8,8 +8,6 @@ function RecordForm({ addRecord }) {
     const [notes, setNotes] = useState("");
     const [errors, setErrors] = useState("");
 
-    console.log(category);
-
     function handleSubmit(e) {
         e.preventDefault();
         setErrors("");
@@ -38,7 +36,6 @@ function RecordForm({ addRecord }) {
                     })
                 } else {
                     response.json().then(error => {
-                        console.log(error.errors)
                         setErrors(error.errors.join("; "))
                     })
                 }

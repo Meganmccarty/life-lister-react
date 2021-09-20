@@ -26,7 +26,6 @@ function RecordCard({ id, category, dateSeen, notes, taxon, onPatchRecord, onDel
             fetch(`/api/records/${id}`, configObj)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
                     onPatchRecord(data)
                     setEditMode(false);
                 })

@@ -34,7 +34,6 @@ function Login({ onLogin }) {
                     });
                 } else {
                     response.json().then(error => {
-                        console.log(error.errors);
                         setErrors(error.errors);
                     });
                 };
